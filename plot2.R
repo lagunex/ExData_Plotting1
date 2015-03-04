@@ -30,7 +30,8 @@ plot2 <- function(data = NULL,
     data <- if (is.null(data)) { read_data() } else { data }
 
     if (toPng) {
-        png(filename = "plot2.png", width = 480, height = 480)
+        png(filename = "plot2.png", width = 480, height = 480,
+            bg = "transparent")
     }
 
     with(data, {

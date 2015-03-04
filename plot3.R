@@ -11,7 +11,8 @@ plot3 <- function(data = NULL, toPng = TRUE, legendBorder = TRUE) {
     data <- if (is.null(data)) { read_data() } else { data }
 
     if (toPng) {
-        png(filename = "plot3.png", width = 480, height = 480)
+        png(filename = "plot3.png", width = 480, height = 480,
+            bg = "transparent")
     }
 
     with(data, {

@@ -27,7 +27,8 @@ plot4 <- function(data = NULL, toPng = TRUE) {
     data <- if (is.null(data)) { read_data() } else { data }
 
     if (toPng) {
-        png(filename = "plot4.png", width = 480, height = 480)
+        png(filename = "plot4.png", width = 480, height = 480,
+            bg = "transparent")
     }
 
     par(mfcol = c(2,2))

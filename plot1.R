@@ -6,7 +6,7 @@ source("read_data.R")
 # data - dataframe used for plotting
 plot1 <- function(data = NULL) {
     data <- if (is.null(data)) { read_data() } else { data }
-    png(filename = "plot1.png", width = 480, height = 480)
+    png(filename = "plot1.png", width = 480, height = 480, bg = "transparent")
     hist(data$Global_active_power,
          col="red",
          main ="Global Active Power",
