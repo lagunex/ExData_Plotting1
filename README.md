@@ -112,3 +112,28 @@ The four plots that you will need to construct are shown below.
 
 ![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
 
+## Run the scripts
+
+This repo contains five R scripts and four PNG images. The PNG images were created using the corresponding R script, i.e., plot1.R created plot1.png, plot2.R created plot2.png and so on.
+
+There is an utility scripts called read\_data.R that defines a function to download and unzip the data and another one to read it. The reading function is used by the plotX.R scripts.
+
+The scripts assume that the data was already downloaded and unzip and the resulting file is in the working directory.
+
+To generate the plots from scracth, clone the repo, open R and execute the following commands:
+
+    source("read_data.R")
+    download_unzip()
+    data <- read_data()
+
+    for(i in 1:4) {
+        source(paste("plot", i, ".R", sep = ""))
+    }
+
+    plot1(data)
+    plot2(data)
+    plot3(data)
+    plot4(data)
+
+The four PNG files will be saved in your working directory
+
