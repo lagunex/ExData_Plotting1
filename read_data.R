@@ -2,6 +2,7 @@
 # utility function to download and unzip the data
 download_unzip <- function() {
     URL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+    FILE_NAME <- "household_power_consumption"
     ZIP_NAME <- paste(FILE_NAME, ".zip", sep = "")
     download.file(URL, destfile = ZIP_NAME , method = "curl")
     unzip(ZIP_NAME)
