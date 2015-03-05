@@ -11,18 +11,20 @@ download_unzip <- function() {
 ##
 # utility function that reads the unzipped data
 # for the period [2007-02-01, 2007-02-02]
-# this functions is called in all plotX.R
+# this functions is called in all plotX function
+# if they don't received data as an input parameter
 read_data <- function() {
     FILE_NAME <- "household_power_consumption"
     TXT_NAME <- paste(FILE_NAME, ".txt", sep = "")
 
-    data_header <- read.csv(TXT_NAME, header = F, sep=";", nrow = 1, stringsAsFactors = F)
+    fullData <- read.csv(TXT_NAME,
+                     sep = ";",
+                     header = TRUE,
+                     na.strings = "?",
+                     colClasses = c("character", "character", rep("numeric", 7))
+    )
+    data <- fullData[grep("^[12]/2/2007", fullData$Date),]
 
-    # only read entries for the specified period
-    # skip and nrow values were computed using standard UNIX tools (nl, grep, wc, etc.)
-    data <- read.csv(TXT_NAME, header = F, sep = ";", skip = 66637, nrow = 2880)
-
-    names(data) <- data_header
     data$Date <- strptime(data$Date, "%d/%m/%Y")
     data
 }
